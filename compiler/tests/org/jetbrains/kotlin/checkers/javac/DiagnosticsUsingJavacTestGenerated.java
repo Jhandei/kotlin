@@ -10994,9 +10994,14 @@ public class DiagnosticsUsingJavacTestGenerated extends AbstractDiagnosticsUsing
                 runTest("compiler/testData/diagnostics/tests/inner/nestedClassInObject.kt");
             }
 
-            @TestMetadata("nestedClassNotAllowed.kt")
-            public void testNestedClassNotAllowed() throws Exception {
-                runTest("compiler/testData/diagnostics/tests/inner/nestedClassNotAllowed.kt");
+            @TestMetadata("nestedClassNotAllowed_after.kt")
+            public void testNestedClassNotAllowed_after() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/inner/nestedClassNotAllowed_after.kt");
+            }
+
+            @TestMetadata("nestedClassNotAllowed_before.kt")
+            public void testNestedClassNotAllowed_before() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/inner/nestedClassNotAllowed_before.kt");
             }
 
             @TestMetadata("nestedObject.kt")
