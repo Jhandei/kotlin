@@ -3293,9 +3293,14 @@ public class DiagnosticsUsingJavacTestGenerated extends AbstractDiagnosticsUsing
                 runTest("compiler/testData/diagnostics/tests/controlFlowAnalysis/assignmentInLocalsInConstructor.kt");
             }
 
-            @TestMetadata("backingFieldInsideGetter.kt")
-            public void testBackingFieldInsideGetter() throws Exception {
-                runTest("compiler/testData/diagnostics/tests/controlFlowAnalysis/backingFieldInsideGetter.kt");
+            @TestMetadata("backingFieldInsideGetter_after.kt")
+            public void testBackingFieldInsideGetter_after() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/controlFlowAnalysis/backingFieldInsideGetter_after.kt");
+            }
+
+            @TestMetadata("backingFieldInsideGetter_before.kt")
+            public void testBackingFieldInsideGetter_before() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/controlFlowAnalysis/backingFieldInsideGetter_before.kt");
             }
 
             @TestMetadata("breakContinueInTryFinally.kt")
