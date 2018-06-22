@@ -3393,9 +3393,14 @@ public class DiagnosticsUsingJavacTestGenerated extends AbstractDiagnosticsUsing
                 runTest("compiler/testData/diagnostics/tests/controlFlowAnalysis/initializationInLocalFun.kt");
             }
 
-            @TestMetadata("initializationInLocalViaExplicitThis.kt")
-            public void testInitializationInLocalViaExplicitThis() throws Exception {
-                runTest("compiler/testData/diagnostics/tests/controlFlowAnalysis/initializationInLocalViaExplicitThis.kt");
+            @TestMetadata("initializationInLocalViaExplicitThis_after.kt")
+            public void testInitializationInLocalViaExplicitThis_after() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/controlFlowAnalysis/initializationInLocalViaExplicitThis_after.kt");
+            }
+
+            @TestMetadata("initializationInLocalViaExplicitThis_before.kt")
+            public void testInitializationInLocalViaExplicitThis_before() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/controlFlowAnalysis/initializationInLocalViaExplicitThis_before.kt");
             }
 
             @TestMetadata("kt1001.kt")
