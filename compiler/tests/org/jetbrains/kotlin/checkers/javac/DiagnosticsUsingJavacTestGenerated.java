@@ -4240,19 +4240,34 @@ public class DiagnosticsUsingJavacTestGenerated extends AbstractDiagnosticsUsing
                     KotlinTestUtils.assertAllTestsPresentByMetadata(this.getClass(), new File("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion"), Pattern.compile("^(.+)\\.kt$"), TargetBackend.ANY, true);
                 }
 
-                @TestMetadata("everythingInOneScope.kt")
-                public void testEverythingInOneScope() throws Exception {
-                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/everythingInOneScope.kt");
+                @TestMetadata("everythingInOneScope_after.kt")
+                public void testEverythingInOneScope_after() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/everythingInOneScope_after.kt");
                 }
 
-                @TestMetadata("noMembers.kt")
-                public void testNoMembers() throws Exception {
-                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/noMembers.kt");
+                @TestMetadata("everythingInOneScope_before.kt")
+                public void testEverythingInOneScope_before() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/everythingInOneScope_before.kt");
                 }
 
-                @TestMetadata("onlyInterfaces.kt")
-                public void testOnlyInterfaces() throws Exception {
-                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/onlyInterfaces.kt");
+                @TestMetadata("noMembers_after.kt")
+                public void testNoMembers_after() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/noMembers_after.kt");
+                }
+
+                @TestMetadata("noMembers_before.kt")
+                public void testNoMembers_before() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/noMembers_before.kt");
+                }
+
+                @TestMetadata("onlyInterfaces_after.kt")
+                public void testOnlyInterfaces_after() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/onlyInterfaces_after.kt");
+                }
+
+                @TestMetadata("onlyInterfaces_before.kt")
+                public void testOnlyInterfaces_before() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/onlyInterfaces_before.kt");
                 }
 
                 @TestMetadata("typeIsLowEnough.kt")
@@ -4260,14 +4275,24 @@ public class DiagnosticsUsingJavacTestGenerated extends AbstractDiagnosticsUsing
                     runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/typeIsLowEnough.kt");
                 }
 
-                @TestMetadata("withIrrelevantInterface.kt")
-                public void testWithIrrelevantInterface() throws Exception {
-                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/withIrrelevantInterface.kt");
+                @TestMetadata("withIrrelevantInterface_after.kt")
+                public void testWithIrrelevantInterface_after() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/withIrrelevantInterface_after.kt");
                 }
 
-                @TestMetadata("withMembers.kt")
-                public void testWithMembers() throws Exception {
-                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/withMembers.kt");
+                @TestMetadata("withIrrelevantInterface_before.kt")
+                public void testWithIrrelevantInterface_before() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/withIrrelevantInterface_before.kt");
+                }
+
+                @TestMetadata("withMembers_after.kt")
+                public void testWithMembers_after() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/withMembers_after.kt");
+                }
+
+                @TestMetadata("withMembers_before.kt")
+                public void testWithMembers_before() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/cyclicHierarchy/withCompanion/withMembers_before.kt");
                 }
 
                 @TestMetadata("withoutTypeReference.kt")
