@@ -6662,9 +6662,14 @@ public class DiagnosticsUsingJavacTestGenerated extends AbstractDiagnosticsUsing
                 runTest("compiler/testData/diagnostics/tests/enum/constructorWithDefaultParametersOnly.kt");
             }
 
-            @TestMetadata("dontCreatePackageTypeForEnumEntry.kt")
-            public void testDontCreatePackageTypeForEnumEntry() throws Exception {
-                runTest("compiler/testData/diagnostics/tests/enum/dontCreatePackageTypeForEnumEntry.kt");
+            @TestMetadata("dontCreatePackageTypeForEnumEntry_after.kt")
+            public void testDontCreatePackageTypeForEnumEntry_after() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/enum/dontCreatePackageTypeForEnumEntry_after.kt");
+            }
+
+            @TestMetadata("dontCreatePackageTypeForEnumEntry_before.kt")
+            public void testDontCreatePackageTypeForEnumEntry_before() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/enum/dontCreatePackageTypeForEnumEntry_before.kt");
             }
 
             @TestMetadata("emptyConstructor.kt")
@@ -6919,9 +6924,14 @@ public class DiagnosticsUsingJavacTestGenerated extends AbstractDiagnosticsUsing
                     runTest("compiler/testData/diagnostics/tests/enum/inner/insideEnum.kt");
                 }
 
-                @TestMetadata("insideEnumEntry.kt")
-                public void testInsideEnumEntry() throws Exception {
-                    runTest("compiler/testData/diagnostics/tests/enum/inner/insideEnumEntry.kt");
+                @TestMetadata("insideEnumEntry_after.kt")
+                public void testInsideEnumEntry_after() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/enum/inner/insideEnumEntry_after.kt");
+                }
+
+                @TestMetadata("insideEnumEntry_before.kt")
+                public void testInsideEnumEntry_before() throws Exception {
+                    runTest("compiler/testData/diagnostics/tests/enum/inner/insideEnumEntry_before.kt");
                 }
 
                 @TestMetadata("insideInnerClassNotAllowed.kt")
@@ -8142,9 +8152,14 @@ public class DiagnosticsUsingJavacTestGenerated extends AbstractDiagnosticsUsing
                         KotlinTestUtils.assertAllTestsPresentByMetadata(this.getClass(), new File("compiler/testData/diagnostics/tests/generics/innerClasses/implicitArguments"), Pattern.compile("^(.+)\\.kt$"), TargetBackend.ANY, true);
                     }
 
-                    @TestMetadata("fromCompanionObject.kt")
-                    public void testFromCompanionObject() throws Exception {
-                        runTest("compiler/testData/diagnostics/tests/generics/innerClasses/implicitArguments/fromCompanionObject.kt");
+                    @TestMetadata("fromCompanionObject_after.kt")
+                    public void testFromCompanionObject_after() throws Exception {
+                        runTest("compiler/testData/diagnostics/tests/generics/innerClasses/implicitArguments/fromCompanionObject_after.kt");
+                    }
+
+                    @TestMetadata("fromCompanionObject_before.kt")
+                    public void testFromCompanionObject_before() throws Exception {
+                        runTest("compiler/testData/diagnostics/tests/generics/innerClasses/implicitArguments/fromCompanionObject_before.kt");
                     }
 
                     @TestMetadata("fromOuterClassInObjectLiteral.kt")
