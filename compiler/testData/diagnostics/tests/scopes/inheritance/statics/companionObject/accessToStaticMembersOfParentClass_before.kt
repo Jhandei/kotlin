@@ -1,3 +1,4 @@
+// !LANGUAGE: -ProhibitVisibilityOfNestedClassifiersFromSupertypesOfCompanion
 // FILE: J.java
 public class J {
     public static void foo() {}

@@ -1,52 +1,48 @@
+// !LANGUAGE: +ProhibitVisibilityOfNestedClassifiersFromSupertypesOfCompanion
 // FILE: J.java
 public class J {
     public static void foo() {}
 }
 
-// FILE: J2.java
-public class J2 extends A {
-    public static void boo() {}
-}
-
 // FILE: test.kt
-open class A {
-    companion object : J() {
-        fun bar() {}
-    }
+
+open class B : J() {
+    fun baz() {}
 }
 
-class B : J2() {
+class A {
     init {
         foo()
         bar()
-        boo()
+        baz()
     }
 
-    fun test2() {
+    fun test1() {
         foo()
         bar()
-        boo()
+        baz()
     }
 
     object O {
         fun test() {
             foo()
             bar()
-            boo()
+            baz()
         }
     }
 
-    companion object {
+
+    companion object : B() {
         init {
             foo()
             bar()
-            boo()
+            baz()
         }
 
         fun test() {
             foo()
             bar()
-            boo()
+            baz()
         }
 
         fun bar() {}
