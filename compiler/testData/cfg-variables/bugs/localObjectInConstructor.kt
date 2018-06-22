@@ -1,3 +1,5 @@
+// !LANGUAGE: +ReadDeserializedContracts +UseCallsInPlaceEffect
+
 fun println(obj: Any?) {}
 
 class Demo0 {
