@@ -1543,14 +1543,14 @@ public class DiagnosticsUsingJavacTestGenerated extends AbstractDiagnosticsUsing
                 runTest("compiler/testData/diagnostics/tests/backingField/FieldOnVar.kt");
             }
 
-            @TestMetadata("FieldReassignment.kt")
-            public void testFieldReassignment() throws Exception {
-                runTest("compiler/testData/diagnostics/tests/backingField/FieldReassignment.kt");
+            @TestMetadata("FieldReassignment_after.kt")
+            public void testFieldReassignment_after() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/backingField/FieldReassignment_after.kt");
             }
 
-            @TestMetadata("FieldReassignmentError.kt")
-            public void testFieldReassignmentError() throws Exception {
-                runTest("compiler/testData/diagnostics/tests/backingField/FieldReassignmentError.kt");
+            @TestMetadata("FieldReassignment_before.kt")
+            public void testFieldReassignment_before() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/backingField/FieldReassignment_before.kt");
             }
 
             @TestMetadata("FieldShadow.kt")
@@ -3019,9 +3019,14 @@ public class DiagnosticsUsingJavacTestGenerated extends AbstractDiagnosticsUsing
                 runTest("compiler/testData/diagnostics/tests/classObjects/InnerClassAccessThroughClassObject.kt");
             }
 
-            @TestMetadata("InnerClassAccessThroughEnum.kt")
-            public void testInnerClassAccessThroughEnum() throws Exception {
-                runTest("compiler/testData/diagnostics/tests/classObjects/InnerClassAccessThroughEnum.kt");
+            @TestMetadata("InnerClassAccessThroughEnum_after.kt")
+            public void testInnerClassAccessThroughEnum_after() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/classObjects/InnerClassAccessThroughEnum_after.kt");
+            }
+
+            @TestMetadata("InnerClassAccessThroughEnum_before.kt")
+            public void testInnerClassAccessThroughEnum_before() throws Exception {
+                runTest("compiler/testData/diagnostics/tests/classObjects/InnerClassAccessThroughEnum_before.kt");
             }
 
             @TestMetadata("InnerClassClassObject.kt")
