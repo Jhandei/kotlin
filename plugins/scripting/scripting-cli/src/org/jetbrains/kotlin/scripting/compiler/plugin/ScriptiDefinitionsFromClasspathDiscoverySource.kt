@@ -307,7 +307,7 @@ private fun loadScriptDefinition(
         return def
     } catch (ex: ClassNotFoundException) {
         messageCollector.report(
-            CompilerMessageSeverity.WARNING,
+            CompilerMessageSeverity.ERROR,
             "Script definition template $template class not found"
         )
         // return null
