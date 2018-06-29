@@ -170,9 +170,15 @@ internal fun loadScriptTemplatesFromClasspath(
     messageCollector: MessageCollector
 ): Sequence<KotlinScriptDefinition> = buildSequence {
     val templatesLeftToFind = ArrayList<String>()
+    val templateClasspath by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        classpath + dependenciesClasspath
+    }
+    val classLoader by lazy(LazyThreadSafetyMode.PUBLICATION) {
+        URLClassLoader(templateClasspath.map { it.toURI().toURL() }.toTypedArray(), baseClassLoader)
+    }
     // trying the direct classloading from baseClassloader first, since this is the most performant variant
     for (template in scriptTemplates) {
-        val def = loadScriptDefinition(baseClassLoader, template, scriptResolverEnv, messageCollector)
+        val def = loadScriptDefinition(classLoader, template, scriptResolverEnv, messageCollector)
         if (def == null) {
             templatesLeftToFind.add(template)
         } else {
@@ -181,12 +187,6 @@ internal fun loadScriptTemplatesFromClasspath(
     }
     // then searching the remaining templates in the supplied classpath
     if (templatesLeftToFind.isNotEmpty()) {
-        val templateClasspath by lazy(LazyThreadSafetyMode.PUBLICATION) {
-            classpath + dependenciesClasspath
-        }
-        val classLoader by lazy(LazyThreadSafetyMode.PUBLICATION) {
-            URLClassLoader(templateClasspath.map { it.toURI().toURL() }.toTypedArray(), baseClassLoader)
-        }
         for (dep in classpath) {
             try {
                 when {
@@ -306,6 +306,10 @@ private fun loadScriptDefinition(
         )
         return def
     } catch (ex: ClassNotFoundException) {
+        messageCollector.report(
+            CompilerMessageSeverity.WARNING,
+            "Script definition template $template class not found"
+        )
         // return null
     } catch (ex: Exception) {
         messageCollector.report(
