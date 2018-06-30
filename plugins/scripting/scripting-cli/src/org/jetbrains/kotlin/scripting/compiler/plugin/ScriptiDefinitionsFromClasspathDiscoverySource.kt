@@ -237,8 +237,8 @@ internal fun loadScriptTemplatesFromClasspath(
     }
     if (templatesLeftToFind.isNotEmpty()) {
         messageCollector.report(
-            CompilerMessageSeverity.WARNING,
-            "Configure scripting: unable to find script definition classes: $templatesLeftToFind"
+            CompilerMessageSeverity.STRONG_WARNING,
+            "Configure scripting: unable to find script definition classes: ${templatesLeftToFind.joinToString(", ")}"
         )
     }
 }
@@ -306,15 +306,12 @@ private fun loadScriptDefinition(
         )
         return def
     } catch (ex: ClassNotFoundException) {
-        messageCollector.report(
-            CompilerMessageSeverity.ERROR,
-            "Script definition template $template class not found"
-        )
-        // return null
+        // not found - not an error, return null
     } catch (ex: Exception) {
+        // other exceptions - might be an error
         messageCollector.report(
-            CompilerMessageSeverity.ERROR,
-            "Error processing script definition template $template: ${ex.message}"
+            CompilerMessageSeverity.STRONG_WARNING,
+            "Error on loading script definition $template: ${ex.message}"
         )
     }
     return null
