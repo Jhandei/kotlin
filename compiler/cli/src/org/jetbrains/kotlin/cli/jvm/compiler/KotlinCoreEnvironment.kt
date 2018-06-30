@@ -224,6 +224,12 @@ class KotlinCoreEnvironment private constructor(
                         .distinctBy { it.absolutePath })
             }
         }
+        // If not disabled explicitly, we should always support at least the standard script definition
+        if (!configuration.getBoolean(JVMConfigurationKeys.DISABLE_STANDARD_SCRIPT_DEFINITION) &&
+            StandardScriptDefinition !in configuration.getList(JVMConfigurationKeys.SCRIPT_DEFINITIONS)
+        ) {
+            configuration.add(JVMConfigurationKeys.SCRIPT_DEFINITIONS, StandardScriptDefinition)
+        }
 
         val jdkHome = configuration.get(JVMConfigurationKeys.JDK_HOME)
         val jrtFileSystem = VirtualFileManager.getInstance().getFileSystem(StandardFileSystems.JRT_PROTOCOL)
@@ -416,12 +422,6 @@ class KotlinCoreEnvironment private constructor(
             parentDisposable: Disposable, configuration: CompilerConfiguration, configFiles: EnvironmentConfigFiles
         ): KotlinCoreEnvironment {
             setCompatibleBuild()
-            // If not disabled explicitly, we should always support at least the standard script definition
-            if (!configuration.getBoolean(JVMConfigurationKeys.DISABLE_STANDARD_SCRIPT_DEFINITION) &&
-                StandardScriptDefinition !in configuration.getList(JVMConfigurationKeys.SCRIPT_DEFINITIONS)
-            ) {
-                configuration.add(JVMConfigurationKeys.SCRIPT_DEFINITIONS, StandardScriptDefinition)
-            }
             val appEnv = getOrCreateApplicationEnvironmentForProduction(configuration)
             // Disposing of the environment is unsafe in production then parallel builds are enabled, but turning it off universally
             // breaks a lot of tests, therefore it is disabled for production and enabled for tests
@@ -458,12 +458,6 @@ class KotlinCoreEnvironment private constructor(
             parentDisposable: Disposable, initialConfiguration: CompilerConfiguration, extensionConfigs: EnvironmentConfigFiles
         ): KotlinCoreEnvironment {
             val configuration = initialConfiguration.copy()
-            // in tests we assume that standard definition should only be added if no other explicit defs are already added
-            if (!configuration.getBoolean(JVMConfigurationKeys.DISABLE_STANDARD_SCRIPT_DEFINITION) &&
-                configuration.getList(JVMConfigurationKeys.SCRIPT_DEFINITIONS).isEmpty()
-            ) {
-                configuration.add(JVMConfigurationKeys.SCRIPT_DEFINITIONS, StandardScriptDefinition)
-            }
             // Tests are supposed to create a single project and dispose it right after use
             return KotlinCoreEnvironment(
                 parentDisposable,
